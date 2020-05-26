@@ -6,6 +6,7 @@ import * as Location from "expo-location";
 import { Icon } from "react-native-elements";
 import metroJson from "./json/metro.json";
 import axios from "axios";
+import mapStyle from "./json/mapStyle.json";
 
 const UBIKE_URL =
   "https://data.ntpc.gov.tw/api/datasets/71CD1490-A2DF-4198-BEF1-318479775E8A/json/preview";
@@ -88,7 +89,9 @@ const App = () => {
         region={region}
         style={{ flex: 1 }}
         showsTraffic
+        provider="google"
         onRegionChangeComplete={onRegionChangeComplete}
+        customMapStyle={mapStyle}
       >
         {metro.map((site) => (
           <Marker
@@ -113,8 +116,15 @@ const App = () => {
             key={site.sno}
             title={`${site.sna} ${site.sbi}/${site.tot}`}
             description={site.ar}
-          />
+          >
+          <Image
+              source={require("./imgs/metro.png")}
+              style={{ width: 26, height: 28 }}
+              resizeMode="contain"
+            />
+          </Marker>
         ))}
+      
       </MapView>
       {!onCurrentLocation && (
         <Icon
