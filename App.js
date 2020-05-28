@@ -101,7 +101,7 @@ const App = () => {
             description={site.address}
           >
             <Image
-              source={require("./imgs/metro.png")}
+              source={require("./imgs/Metro02.png")}
               style={{ width: 26, height: 28 }}
               resizeMode="contain"
             />
@@ -118,7 +118,7 @@ const App = () => {
             description={site.ar}
           >
           <Image
-              source={require("./imgs/metro.png")}
+              source={require("./imgs/UBike.png")}
               style={{ width: 26, height: 28 }}
               resizeMode="contain"
             />
